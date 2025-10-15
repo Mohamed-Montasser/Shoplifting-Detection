@@ -10,9 +10,13 @@ A deep learning-based video classification system for detecting shoplifting beha
 - [Model Performance](#model-performance)
 - [License](#license)
 
+---
+
 ## 🎯 Overview
 
 This project implements a video classification model that can automatically detect shoplifting behavior from surveillance camera footage. The model combines Convolutional Neural Networks (CNN) for spatial feature extraction and Long Short-Term Memory (LSTM) networks for temporal pattern recognition.
+
+---
 
 ## ✨ Features
 
@@ -22,6 +26,8 @@ This project implements a video classification model that can automatically dete
 - **Data Augmentation**: Random flips, rotations, and color jittering for better generalization
 - **GPU Acceleration**: Full CUDA support for faster training
 - **Deployment Ready**: Compatible with Streamlit and Flask for easy deployment
+
+---
 
 ## 🏗️ Architecture
 
@@ -45,6 +51,8 @@ The model consists of three main components:
 
 **Model Parameters**: ~15-20 million trainable parameters
 
+---
+
 ## 📊 Dataset
 
 - **Classes**: 2 (Non-Shoplifter, Shoplifter)
@@ -54,6 +62,8 @@ The model consists of three main components:
   - Shoplifter: ~38%
 - **Video Processing**: 16 frames per video, resized to 112×112 pixels
 - **Stratified Splitting**: Maintains class balance across all splits
+
+---
 
 ## 🔧 Requirements
 
@@ -68,6 +78,8 @@ seaborn>=0.11.0
 tqdm>=4.60.0
 ```
 
+---
+
 ## 📈 Model Performance
 
 ### Confusion Matrix
@@ -76,6 +88,7 @@ tqdm>=4.60.0
 ### Training Curves
 ![Training Curves](assets/training_curves.png)
 
+---
 
 ## 📝 License
 
