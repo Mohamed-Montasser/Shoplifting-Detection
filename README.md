@@ -1,6 +1,6 @@
 # Shoplifting Detection using CNN-LSTM
 
-A deep learning-based video classification system for detecting shoplifting behavior in surveillance footage using a custom CNN-LSTM architecture built from scratch in PyTorch.
+A deep learning-based video classification system for detecting shoplifting behavior in surveillance footage. The project includes both a custom CNN-LSTM architecture built from scratch and a fine-tuned pretrained R3D-18 (3D ResNet) model, along with a production-ready Django web application for deployment. 
 
 ## 📋 Table of Contents
 - [Overview](#overview)
