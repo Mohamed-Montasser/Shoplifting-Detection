@@ -1,0 +1,6 @@
+Django==4.2.0
+torch==2.0.0
+torchvision==0.15.0
+opencv-python==4.8.0.76
+numpy==1.24.3
+Pillow==10.0.0

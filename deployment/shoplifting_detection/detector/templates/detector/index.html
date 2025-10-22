@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shoplifting Detection System</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .container { background: #f5f5f5; padding: 30px; border-radius: 10px; }
+        .result { margin-top: 30px; padding: 20px; background: white; border-radius: 5px; }
+        .normal { color: green; font-weight: bold; }
+        .shoplifting { color: red; font-weight: bold; }
+        video { max-width: 100%; margin-top: 20px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shoplifting Detection System</h1>
+        <p>Upload a video to detect shoplifting behavior using AI</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Analyze Video</button>
+        </form>
+        
+        {% if prediction_result %}
+        <div class="result">
+            {% if prediction_result.error %}
+                <p style="color: red;">Error: {{ prediction_result.error }}</p>
+            {% else %}
+                <h2>Prediction Results</h2>
+                <p>Status: <span class="{% if prediction_result.prediction == 'Normal' %}normal{% else %}shoplifting{% endif %}">
+                    {{ prediction_result.prediction }}
+                </span></p>
+                <p>Confidence: {{ prediction_result.confidence }}%</p>
+                <p>Probabilities:</p>
+                <ul>
+                    <li>Normal: {{ prediction_result.probabilities.normal }}%</li>
+                    <li>Shoplifting: {{ prediction_result.probabilities.shoplifting }}%</li>
+                </ul>
+            {% endif %}
+        </div>
+        
+        {% if video_url %}
+        <video controls>
+            <source src="{{ video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
